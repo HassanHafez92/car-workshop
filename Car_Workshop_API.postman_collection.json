@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "8438f45a-c567-42bc-9df2-fa12845ac310",
+		"name": "نظام إدارة ورش السيارات - Car Workshop Management API",
+		"description": "مجموعة طلبات لفحص واجهات البرمجة الخاصة بنظام إدارة ورش السيارات بالكامل (FastAPI Python Backend)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "حالة الخادم وقاعدة البيانات",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/status",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "قائمة العملاء",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "إضافة عميل جديد",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"حسن أحمد محمود\",\n    \"phone\": \"01198765432\",\n    \"email\": \"hassan@example.com\",\n    \"address\": \"المعادي، القاهرة، مصر\",\n    \"type\": \"cash\",\n    \"creditLimit\": 0.0\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "قائمة المركبات",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "إضافة سيارة جديدة",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"cust_1\",\n    \"plateNumber\": \"س ص ع 999\",\n    \"chassisNumber\": \"VIN98765432101234\",\n    \"make\": \"تويوتا\",\n    \"model\": \"يارس\",\n    \"year\": \"2022\",\n    \"color\": \"أزرق ميتاليك\",\n    \"odometer\": 12000,\n    \"notes\": \"أول صيانة بعد الشراء\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "دليل قطع الغيار",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "تعديل رصيد بضاعة يدوياً",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"part_id\": \"part_1\",\n    \"change\": 10,\n    \"reason\": \"تسجيل وارد يدوي عبر REST API للمستودع\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/adjust",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						"adjust"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "إنشاء كرت عمل جديد",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cardNo\": \"JC-2026-API-001\",\n    \"customerId\": \"cust_1\",\n    \"vehicleId\": \"veh_1\",\n    \"complaint\": \"فحص أعطال الكهرباء والتوصيل بمصدر الطاقة\",\n    \"odometer\": 65420,\n    \"status\": \"New\",\n    \"tasks\": [],\n    \"parts\": [],\n    \"createdAt\": \"2026-06-03 09:00\",\n    \"statusLogs\": [\n        {\n            \"status\": \"New\",\n            \"timestamp\": \"2026-06-03 09:00\",\n            \"userRole\": \"API Client\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/jobcards",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"jobcards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "سجل المراجعة والأمان للعمليات",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auditlogs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auditlogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "تسجيل الدخول للمستخدم (Auth Login)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "قائمة حسابات الموظفين (Get Users)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
